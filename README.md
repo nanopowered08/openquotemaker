@@ -4,7 +4,7 @@ I was bored as fuck so instead of writing the Constitution for Terrible-Harness 
 
 Yes, least self-deprecating name you've seen in awhile.
 
-This quote maker has some inspiration [from this discord bot's](greed.best) quote generator.
+This quote maker has some inspiration [from this discord bot's](https://greed.best) quote generator.
 
 ## How do I use it?
 
