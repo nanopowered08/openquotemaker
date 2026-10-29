@@ -1,3 +1,5 @@
+import cairosvg
+from io import BytesIO
 from PIL import Image, ImageDraw, ImageFont
 import sys
 
@@ -46,7 +48,11 @@ def make(img_path, quote, name, handle, out="card.png"):
     card = Image.new("RGB", (W, H), (10, 10, 12))
 
     # left art: keeps original colors, cover-fit, fades into dark bg
-    art = Image.open(img_path).convert("RGB")
+    if img_path.lower().endswith(".svg"):
+        png_data = cairosvg.svg2png(url=img_path)
+        art = Image.open(BytesIO(png_data)).convert("RGB")
+    else:
+        art = Image.open(img_path).convert("RGB")
     aw = 700
     s = max(aw / art.width, H / art.height)
     art = art.resize((int(art.width * s), int(art.height * s)))
@@ -55,7 +61,7 @@ def make(img_path, quote, name, handle, out="card.png"):
     mask = Image.new("L", (aw, H))
     md = ImageDraw.Draw(mask)
     for x in range(aw):
-        a = 255 if x < 300 else max(0, int(255 * (1 - (x - 300) / 340)))
+        a = 255 if x < 320 else max(0, int(255 * (1 - (x - 320) / 360)))
         md.line([(x, 0), (x, H)], fill=a)
     card.paste(art, (0, 0), mask)
 
