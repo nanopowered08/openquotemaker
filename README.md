@@ -1,4 +1,4 @@
-<img src="test.png" alt="test" width="600" align="center">
+<img src="test1.png" alt="test" width="600" align="center">
 
 I was bored as fuck so instead of writing the Constitution for Terrible-Harness I made...
 
@@ -26,13 +26,13 @@ pkg i python-pillow
 Then the syntax is:
 
 ```bash
-python app.py pfp.{jpg|png|other images PIL supports} "quote" "display name" "username"
+python app.py (image) "quote" "display name" "username"
 ```
 
 For example...
 
 ```bash
-python app.py pfp2.jpg "Please, I'm a professional." "The Freelancer" "Finch"
+python app.py finch.webp "Please, I'm a professional." "The Freelancer" "Finch"
 ```
 
 ## License?
